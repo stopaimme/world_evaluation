@@ -86,17 +86,12 @@ def match_image_pairs(reference_dir: Path, generated_dir: Path) -> Tuple[List[Pa
     if not generated_images:
         raise ValueError(f"No images found in generated directory: {generated_dir}")
 
-    generated_by_name = {path.name: path for path in generated_images}
-    missing = [path.name for path in reference_images if path.name not in generated_by_name]
-    extra = [path.name for path in generated_images if path.name not in {ref.name for ref in reference_images}]
+    if len(reference_images) != len(generated_images):
+        raise ValueError(
+            f"Frame count mismatch: reference has {len(reference_images)} frames, generated has {len(generated_images)} frames"
+        )
 
-    if missing:
-        raise ValueError(f"Generated directory is missing {len(missing)} files, first few: {missing[:5]}")
-    if extra:
-        print(f"Warning: generated directory has {len(extra)} extra files that will be ignored.")
-
-    matched_generated = [generated_by_name[path.name] for path in reference_images]
-    return reference_images, matched_generated
+    return reference_images, generated_images
 
 
 def pil_to_tensor(path: Path) -> Tensor:
