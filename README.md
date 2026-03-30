@@ -22,6 +22,7 @@ pip install -r requirements.txt
 2. setup droid-slam and vggt
 
 ```sh
+cd world_evaluation
 mkdir thirdparty
 cd thirdparty
 git clone --recursive https://github.com/princeton-vl/DROID-SLAM.git
