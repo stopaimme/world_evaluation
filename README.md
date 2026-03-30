@@ -49,4 +49,6 @@ GT_case1
 generated_case1
 ├── frame1.png
 ├── frame2.png
+
+The frame length of the generated results and GT should be the same. And the generated results and GT should ideally have the same resolution or aspect ratio.
 ```
