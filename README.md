@@ -31,6 +31,7 @@ pip install thirdparty/lietorch --no-build-isolation
 pip install thirdparty/pytorch_scatter --no-build-isolation
 pip install -e . --no-build-isolation
 cd ../..
+gdown 1PpqVt1H4maBa_GbPJp4NwxRsd9jk-elh
 ```
 
 ## Running
